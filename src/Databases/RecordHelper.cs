@@ -27,8 +27,8 @@ public class RecordHelper
       var records = cellPointers.Select(cellPointer =>
       {
         var stream = pageBytes[cellPointer..];
-        var (payloadSize, bytesRead1) = Varint.Parse(stream);
-        var (rowId, bytesRead2) = Varint.Parse(stream[bytesRead1..]);
+        var (payloadSize, bytesRead1) = VarInt.Parse(stream);
+        var (rowId, bytesRead2) = VarInt.Parse(stream[bytesRead1..]);
         return Record.Parse(stream[(bytesRead1 + bytesRead2)..], rowId);
       })
       .Where(rec => checkRecord(rec, conditions))
@@ -42,7 +42,7 @@ public class RecordHelper
       {
         var stream = pageBytes[cellPointer..];
         var leftChildPageNumber = ReadUInt32BigEndian(stream[..4]);
-        var (_rowId, bytesRead2) = Varint.Parse(stream[4..]);
+        var (_rowId, bytesRead2) = VarInt.Parse(stream[4..]);
         return GetRecordsByTablePage(path, pageSize, (int)leftChildPageNumber, conditions);
       })
       .ToArray();
@@ -73,7 +73,7 @@ public class RecordHelper
       var records = cellPointers.Select(cellPointer =>
       {
         var stream = pageBytes[cellPointer..];
-        var (payloadSize, bytesRead1) = Varint.Parse(stream);
+        var (payloadSize, bytesRead1) = VarInt.Parse(stream);
         var record = Record.Parse(stream[bytesRead1..], -1);
         if (record.Columns[0] == indexColValue)
         {
@@ -96,7 +96,7 @@ public class RecordHelper
       {
         var stream = pageBytes[cellPointer..];
         var leftChildPageNumber = ReadUInt32BigEndian(stream[..4]);
-        var (payloadSize, bytesRead1) = Varint.Parse(stream[4..]);
+        var (payloadSize, bytesRead1) = VarInt.Parse(stream[4..]);
         var record = Record.Parse(stream[(4 + bytesRead1)..], -1);
 
         if (string.Compare(record.Columns[0], indexColValue, StringComparison.Ordinal) > 0)
@@ -137,7 +137,7 @@ public class RecordHelper
       {
         var stream = pageBytes[cellPointer..];
         var leftChildPageNumber = ReadUInt32BigEndian(stream[..4]);
-        var (_rowId, bytesRead2) = Varint.Parse(stream[4..]);
+        var (_rowId, bytesRead2) = VarInt.Parse(stream[4..]);
         if (_rowId >= rowId)
         {
           return GetRecordByRowId(path, pageSize, leftChildPageNumber, rowId);
@@ -150,8 +150,8 @@ public class RecordHelper
       foreach (var cellPointer in cellPointers)
       {
         var stream = pageBytes[cellPointer..];
-        var (payloadSize, bytesRead1) = Varint.Parse(stream);
-        var (_rowId, bytesRead2) = Varint.Parse(stream[bytesRead1..]);
+        var (payloadSize, bytesRead1) = VarInt.Parse(stream);
+        var (_rowId, bytesRead2) = VarInt.Parse(stream[bytesRead1..]);
         if (_rowId == rowId)
         {
           return Record.Parse(stream[(bytesRead1 + bytesRead2)..], rowId);

@@ -3,6 +3,8 @@ using codecrafters_sqlite.Query;
 
 var (path, command) = args.Length switch
 {
+  0 => throw new InvalidOperationException("Missing <database path> and <command>"),
+  1 => throw new InvalidOperationException("Missing <command>"),
   _ => (args[0], args[1])
 };
 
