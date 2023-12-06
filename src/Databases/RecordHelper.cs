@@ -1,6 +1,8 @@
 using codecrafters_sqlite.Query;
 using codecrafters_sqlite.Utils;
+using codecrafters_sqlite.Libs;
 using static System.Buffers.Binary.BinaryPrimitives;
+
 namespace codecrafters_sqlite.Databases;
 public class RecordHelper
 {
