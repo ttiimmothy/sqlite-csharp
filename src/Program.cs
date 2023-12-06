@@ -1,4 +1,4 @@
-using codecrafters_sqlite.Database;
+using codecrafters_sqlite.Databases;
 using codecrafters_sqlite.Query;
 
 var (path, command) = args.Length switch
