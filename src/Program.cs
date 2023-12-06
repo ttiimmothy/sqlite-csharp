@@ -2,6 +2,7 @@ using codecrafters_sqlite.Database;
 using codecrafters_sqlite.Query;
 
 var (path, command) = args.Length switch
+{
   _ => (args[0], args[1])
 };
 
