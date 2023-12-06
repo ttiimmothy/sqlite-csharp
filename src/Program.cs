@@ -1,5 +1,6 @@
 using codecrafters_sqlite.Databases;
 using codecrafters_sqlite.Query;
+using static System.Buffers.Binary.BinaryPrimitives;
 
 var (path, command) = args.Length switch
 {
