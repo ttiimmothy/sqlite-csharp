@@ -15,7 +15,7 @@ public record Record(string[] Columns, long RowId)
 
     while (headerOffset < headerSize)
     {
-      var (serialType, bytesRead) = Varint.Parse(stream[headerOffset..]);
+      var (serialType, bytesRead) = VarInt.Parse(stream[headerOffset..]);
       var column = ParseColumnValue((int)serialType, stream[contentOffset..]);
       yield return column.Item1;
       headerOffset += bytesRead;

@@ -15,12 +15,10 @@ var queryExecutor = new QueryExecutor(database, queryOptimizer, queryParser);
 
 if (command == ".dbinfo")
 {
-  Console.WriteLine($"number of tables: {recordExtractor.GetSchemas().Length}");
   Console.WriteLine($"number of tables: {database.GetTablesCount()}");
 }
 else if (command == ".tables")
 {
-  Console.WriteLine(string.Join(' ', recordExtractor.GetSchemas().Select(s => s.TableName)));
   Console.WriteLine(string.Join(' ', database.Schemata.Select(s => s.TableName)));
 }
 else
