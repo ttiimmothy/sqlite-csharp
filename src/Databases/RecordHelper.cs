@@ -1,7 +1,7 @@
 using codecrafters_sqlite.Query;
 using codecrafters_sqlite.Utils;
 using static System.Buffers.Binary.BinaryPrimitives;
-namespace codecrafters_sqlite.Database;
+namespace codecrafters_sqlite.Databases;
 public class RecordHelper
 {
   public static Record[] GetRecordsByTablePage(string path, int pageSize, int pageNumber, Dictionary<Column, string> conditions)

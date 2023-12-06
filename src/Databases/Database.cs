@@ -1,5 +1,5 @@
 using codecrafters_sqlite.Query;
-namespace codecrafters_sqlite.Database;
+namespace codecrafters_sqlite.Databases;
 public class Database
 {
   private string _path;
