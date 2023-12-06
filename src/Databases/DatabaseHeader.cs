@@ -1,6 +1,6 @@
 using codecrafters_sqlite.Utils;
 using static System.Buffers.Binary.BinaryPrimitives;
-namespace codecrafters_sqlite.Database;
+namespace codecrafters_sqlite.Databases;
 public record DatabaseHeader(ushort PageSize)
 {
   public static DatabaseHeader Parse(string path)

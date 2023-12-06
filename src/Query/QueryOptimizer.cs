@@ -1,4 +1,4 @@
-using codecrafters_sqlite.DB;
+using codecrafters_sqlite.Databases;
 namespace codecrafters_sqlite.Query;
 public class QueryOptimizer
 {
