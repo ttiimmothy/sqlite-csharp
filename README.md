@@ -1,5 +1,8 @@
 [![progress-banner](https://backend.codecrafters.io/progress/sqlite/904f9c23-9eb0-4459-85b3-fa3f7dd4b6ad)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
 
+# Sqlite CSharp
+[![ci](https://github.com/ttiimmothy/sqlite-csharp/actions/workflows/ci.yml/badge.svg)](https://github.com/ttiimmothy/sqlite-csharp/actions/workflows/ci.yml)
+
 This is a starting point for C# solutions to the
 ["Build Your Own SQLite" Challenge](https://codecrafters.io/challenges/sqlite).
 
@@ -13,7 +16,7 @@ and more.
 **Note**: If you're viewing this repo on GitHub, head over to
 [codecrafters.io](https://codecrafters.io) to try the challenge.
 
-# Passing the first stage
+## Passing the first stage
 
 The entry point for your SQLite implementation is in `src/Program.cs`. Study and
 uncomment the relevant code, and push your changes to pass the first stage:
@@ -26,17 +29,17 @@ git push origin master
 
 Time to move on to the next stage!
 
-# Stage 2 & beyond
+## Stage 2 & beyond
 
 Note: This section is for stages 2 and beyond.
 
 1. Ensure you have `dotnet (6.0)` installed locally
-1. Run `./your_sqlite3.sh` to run your program, which is implemented in
+2. Run `./your_sqlite3.sh` to run your program, which is implemented in
    `src/Program.cs`.
-1. Commit your changes and run `git push origin master` to submit your solution
+3. Commit your changes and run `git push origin master` to submit your solution
    to CodeCrafters. Test output will be streamed to your terminal.
 
-# Sample Databases
+## Sample Databases
 
 To make it easy to test queries locally, we've added a sample database in the
 root of this repository: `sample.db`.
@@ -60,7 +63,7 @@ There are two other databases that you can use:
    - This is a small version of the test database used in the table-scan stage.
    - It contains one table: `superheroes`.
    - It is ~1MB in size.
-1. `companies.db`:
+2. `companies.db`:
    - This is a small version of the test database used in the index-scan stage.
    - It contains one table: `companies`, and one index: `idx_companies_country`
    - It is ~7MB in size.
@@ -75,3 +78,7 @@ download them by running this script:
 If the script doesn't work for some reason, you can download the databases
 directly from
 [codecrafters-io/sample-sqlite-databases](https://github.com/codecrafters-io/sample-sqlite-databases).
+
+## License
+
+Sqlite CSharp is licensed under [GNU General Public License v3.0](LICENSE).
